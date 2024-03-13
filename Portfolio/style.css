@@ -1,18 +1,19 @@
 :root {
-	--primary-color: #4CAF50; /* Основной цвет */
+	--primary-color: #4caf50; /* Основной цвет */
 	--text-color: #fff; /* Цвет текста */
 	--background-color: #000; /* Фоновый цвет */
 	--menu-bg-color: #000; /* Фоновый цвет для выпадающих меню */
 	--hover-bg-color: #444; /* Фоновый цвет при наведении */
 	--menu-border-color: #333; /* Цвет границ выпадающих меню */
-	--checkmark-color: #4CAF50; /* Цвет галочки */
+	--checkmark-color: #4caf50; /* Цвет галочки */
 }
 
-body, html {
+body,
+html {
 	height: 100%;
 	margin: 0;
 	font-family: 'Arial', sans-serif;
-	background: var(--background-color); 
+	background: var(--background-color);
 	color: var(--text-color);
 }
 
@@ -27,7 +28,7 @@ body, html {
 
 .menu {
 	list-style: none;
-	padding: 0;
+	padding: 100;
 	margin: 0;
 	background-color: #000;
 	border-radius: 8px;
@@ -55,8 +56,11 @@ body, html {
 }
 
 /* Иконки */
-.icon-home, .icon-projects, .icon-blog, 
-.icon-telegram, .icon-discord {
+.icon-home,
+.icon-projects,
+.icon-blog,
+.icon-telegram,
+.icon-discord {
 	margin-right: 10px;
 }
 /* End Menu */
@@ -100,7 +104,7 @@ body, html {
 
 .settings li a .checkmark {
 	margin-left: auto;
-	color: #4CAF50; /* Цвет галочки */
+	color: #4caf50; /* Цвет галочки */
 }
 
 .settings li a:hover {
@@ -108,12 +112,15 @@ body, html {
 }
 
 /* Иконки */
-.icon-animations, .icon-sounds, .icon-system, .icon-light, .icon-dark {
+.icon-animations,
+.icon-sounds,
+.icon-system,
+.icon-light,
+.icon-dark {
 	margin-right: 10px;
 }
 
 /* End Setting */
-
 
 /* Main */
 .main-container {
@@ -125,13 +132,14 @@ body, html {
 	text-align: center;
 }
 
-.hero h1, .hero h2 {
+.hero h1,
+.hero h2 {
 	margin: 0;
 	font-weight: normal;
 }
 
 .hero .highlight {
-	color: #4CAF50;
+	color: #4caf50;
 }
 
 .hero p {
@@ -150,5 +158,5 @@ body, html {
 }
 
 .hero-buttons .button:hover {
-	background-color: #4CAF50;
+	background-color: #4caf50;
 }
