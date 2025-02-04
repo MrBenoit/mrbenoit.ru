@@ -1,6 +1,4 @@
-html[data-theme="dark"] {
-	--bg-color: #1c1c1c;
-	--text-color: #E2E7F9;
+:root {
 	--accent-color: #2f71f5;
 	--accent-hover: #0056b3;
 	--svg-color: #36445e;
@@ -10,44 +8,42 @@ html[data-theme="dark"] {
 	--warning-color: #ffc107;
 	--error-color: #dc3545;
 	--font-main: "Nunito", sans-serif;
-	--transition-speed: 0.1s;
+	--transition: 0.1s ease-in-out;
 	--font-size: 18px;
+}
+
+html[data-theme="dark"] {
+	--bg-color: #070F2C;
+	--text-color: #E2E7F9;
 }
 
 
 html[data-theme="light"] {
 	--bg-color: #E2E7F9;
-	--text-color: #E2E7F9;
-	--accent-color: #2f71f5;
-	--accent-hover: #0056b3;
-	--svg-color: #36445e;
-	--border-color: #333333;
-	--shadow-color: rgba(0, 0, 0, 0.3);
-	--success-color: #28a745;
-	--warning-color: #ffc107;
-	--error-color: #dc3545;
-	--font-main: "Nunito", sans-serif;
-	--transition-speed: 0.1s;
-	--font-size: 18px;
+	--text-color: #070F2C;
 }
 
 * {
+	color: var(--text-color);
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	transition: background-color var(--transition-speed) ease-in-out,
-		color var(--transition-speed) ease-in-out,
-		border-color var(--transition-speed) ease-in-out,
-		box-shadow var(--transition-speed) ease-in-out;
+	transition: background-color var(--transition) ease-in-out,
+		color var(--transition) ease-in-out,
+		border-color var(--transition) ease-in-out,
+		box-shadow var(--transition) ease-in-out;
 	font-family: var(--font-main);
 }
 
 html,
 body {
+	display: flex;
 	width: 100%;
 	max-width: 100vw;
 	overflow-x: hidden;
 	height: 1000px;
+	flex-direction: column;
+
 }
 
 html {
@@ -62,7 +58,7 @@ body {
 	margin: 0;
 	padding: 0;
 	background-color: var(--bg-color);
-	color: var(--text-color);
+	transition: background-color var(--transition), color var(--transition);
 	line-height: 1.6;
 }
 
@@ -81,14 +77,15 @@ a {
 	font-size: var(--font-size);
 }
 
+a:hover {
+	color: var(--accent-color);
+	transition: color var(--transition);
+}
+
 #title {
 	font-size: calc(var(--font-size) + 10px);
 	font-family: var(--font-main);
-
-}
-
-a:hover {
-	color: var(--accent-color);
+	transition: color var(--transition);
 }
 
 button {
@@ -148,7 +145,7 @@ header {
 	padding-left: 30px;
 	padding-right: 30px;
 	border-radius: 20px;
-	transition: background-color box-shadow 0.1s ease-in-out;
+	transition: background-color var(--transition), box-shadow var(--transition);
 	z-index: 1000;
 	box-shadow: none;
 }
@@ -169,6 +166,10 @@ header.scrolled {
 	margin: 0 auto;
 }
 
+.header__a {
+	color: #E2E7F9;
+}
+
 nav {
 	position: relative;
 	display: flex;
@@ -184,19 +185,20 @@ nav ul {
 }
 
 nav a {
-	color: var(--text-color);
+	color: #E2E7F9;
 	text-decoration: none;
 	position: relative;
 	padding-bottom: 5px;
-	transition: color var(--transition-speed);
 }
 
 nav a:hover {
 	color: var(--accent-color);
+	transition: color var(--transition);
+
 }
 
 nav a:not(:hover) {
-	transition: color var(--transition-speed);
+	transition: color var(--transition);
 }
 
 nav a.active {
@@ -209,7 +211,7 @@ nav a.active {
 	height: calc(var(--font-size) / 10 - 1px);
 	background: var(--accent-color);
 	border-radius: 10px;
-	transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+	transition: transform var(--transition), width var(--transition);
 	will-change: transform, width;
 }
 
@@ -228,7 +230,7 @@ nav a.active {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	transition: background-color var(--transition-speed), transform 0.2s;
+	transition: background-color var(--transition), transform var(--transition);
 	background-color: var(--text-color);
 	padding: 0;
 	position: relative;
@@ -239,8 +241,7 @@ nav a.active {
 	width: 20px;
 	height: 20px;
 	position: absolute;
-	;
-	transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+	transition: opacity var(--transition), transform var(--transition);
 }
 
 #light-icon {
@@ -270,7 +271,9 @@ html[data-theme="dark"] .theme-toggle {
 
 html[data-theme="light"] .theme-toggle {
 	/* background: #1c1c1c; */
-	background-color: rgba(28, 28, 28, 0.3);
+	/* background-color: rgba(28, 28, 28, 0.3); */
+	background-color: rgba(7, 15, 44, 0.4);
+
 }
 
 .theme-toggle:hover {
@@ -279,7 +282,7 @@ html[data-theme="light"] .theme-toggle {
 
 #language-select {
 	background: #0057b300;
-	color: var(--text-color);
+	color: #E2E7F9;
 	border: none;
 	padding: 5px;
 	cursor: pointer;
@@ -292,8 +295,93 @@ html[data-theme="light"] .theme-toggle {
 
 [data-lang] {
 	display: inline-block;
-	transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+	transition: opacity var(--transition), transform var(--transition);
 }
+
+main {
+	flex: 1;
+}
+
+.contacts-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-auto-rows: minmax(80px, auto);
+	gap: 15px;
+	padding: 40px 20px;
+	max-width: 1000px;
+	margin: 0 auto;
+	justify-content: center;
+}
+
+.contact-card {
+	display: flex;
+	align-items: center;
+	border-radius: 18px;
+	padding: 14px;
+	width: 100%;
+	height: 80px;
+	box-shadow: inset 2px 4px 10px rgba(0, 0, 0, 0.5);
+	transform: translateY(8px);
+	transition: transform var(--transition),
+		box-shadow var(--transition),
+		background var(--transition);
+	position: relative;
+	overflow: hidden;
+}
+
+.contact-card:hover {
+	box-shadow: none;
+	background: var(--bg-color);
+}
+
+.contact-icon {
+	width: 50px;
+	height: 50px;
+	margin-right: 15px;
+	transition: transform var(--transition), opacity var(--transition);
+	transform: translateY(4px);
+	opacity: 0.6;
+}
+
+.contact-info {
+	transition: transform var(--transition), opacity var(--transition);
+	transform: translateY(4px);
+	opacity: 0.6;
+}
+
+.contact-card:hover .contact-icon,
+.contact-card:hover .contact-info {
+	transform: translateY(0);
+	opacity: 1;
+}
+
+html[data-theme="light"] .contact-info h3 {
+	color: #1a1a1a;
+}
+
+html[data-theme="dark"] .contact-info h3 {
+	color: var(--text-color);
+}
+
+html[data-theme="Light"] .contact-info p {
+	color: #1a1a1a;
+}
+
+html[data-theme="dark"] .contact-info p {
+	color: var(--text-color);
+}
+
+.contact-info h3 {
+	font-size: 18px;
+	margin: 0;
+}
+
+.contact-info p {
+	font-size: 14px;
+	margin: 2px 0 0;
+	opacity: 0.8;
+}
+
 
 @media (max-width: 768px) {
 	body {

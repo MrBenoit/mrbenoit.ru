@@ -24,24 +24,27 @@
 	<body>
 		<header>
 			<div class="container">
-				<a id="title" href="/home.html">MrBenoit</a>
+				<a class="header__a" id="title" href="home" data-lang="home"
+					>MrBenoit</a
+				>
 				<nav>
 					<ul>
 						<li>
-							<a href="/home.html" data-lang="about">Главная</a>
+							<a href="home" data-lang="about">Главная</a>
 						</li>
 						<li>
-							<a href="/portfolio.html" data-lang="portfolio">Портфолио</a>
+							<a href="portfolio" data-lang="portfolio">Портфолио</a>
 						</li>
-						<li><a href="/blog.html" data-lang="blog">Блог</a></li>
 						<li>
-							<a href="/contact.html" data-lang="contact">Контакты</a>
+							<a href="blog" data-lang="blog">Блог</a>
+						</li>
+						<li>
+							<a href="contact" data-lang="contact">Контакты</a>
 						</li>
 					</ul>
 				</nav>
 				<div class="controls">
 					<button id="theme-toggle" class="theme-toggle">
-						<!-- Иконка для тёмной темы -->
 						<svg
 							id="light-icon"
 							class="theme-icon"
@@ -82,10 +85,6 @@
 				</div>
 			</div>
 		</header>
-		<main id="content"></main>
-		<script src="/js/index.js" defer></script>
-	</body>
-	<main>
 		<div class="svg-container">
 			<svg
 				viewBox="0 0 1440 431"
@@ -107,5 +106,7 @@
 				/>
 			</svg>
 		</div>
-	</main>
+	</body>
+	<main id="content"></main>
+	<script src="/js/index.js" defer></script>
 </html>
