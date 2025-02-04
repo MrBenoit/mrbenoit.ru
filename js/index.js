@@ -1,22 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
 	const themeToggle = document.getElementById('theme-toggle')
+	const darkIcon = document.getElementById('dark-icon')
+	const lightIcon = document.getElementById('light-icon')
 	const htmlElement = document.documentElement
 	const languageSelect = document.getElementById('language-select')
 	const content = document.getElementById('content')
 	const navLinks = document.querySelectorAll('nav a')
 	const nav = document.querySelector('nav')
-	const header = document.querySelector('header') // Хедер
-	let lastScrollY = window.scrollY // Последняя позиция скролла
+	const header = document.querySelector('header')
 
 	let indicator = document.createElement('div')
 	indicator.classList.add('nav-indicator')
 	nav.appendChild(indicator)
 
-	document.addEventListener('DOMContentLoaded', () => {
-		document
-			.querySelector('meta[name="theme-color"]')
-			.setAttribute('content', '#384254')
-	})
+	document
+		.querySelector('meta[name="theme-color"]')
+		.setAttribute('content', '#384254')
 
 	const translations = {
 		ru: {
@@ -83,15 +82,29 @@ document.addEventListener('DOMContentLoaded', () => {
 		})
 	}
 
-	console.log('JavaScript загружен! Проверяем пути...')
+	function updateThemeIcons(theme) {
+		const darkIcon = document.getElementById('dark-icon')
+		const lightIcon = document.getElementById('light-icon')
+
+		if (theme === 'dark') {
+			darkIcon.classList.remove('hidden')
+			lightIcon.classList.add('hidden')
+		} else {
+			darkIcon.classList.add('hidden')
+			lightIcon.classList.remove('hidden')
+		}
+	}
+
 	const savedTheme = localStorage.getItem('theme') || 'dark'
 	htmlElement.setAttribute('data-theme', savedTheme)
+	updateThemeIcons(savedTheme)
 
 	themeToggle.addEventListener('click', () => {
 		const newTheme =
 			htmlElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
 		htmlElement.setAttribute('data-theme', newTheme)
 		localStorage.setItem('theme', newTheme)
+		updateThemeIcons(newTheme)
 	})
 
 	navLinks.forEach(link => {
@@ -103,8 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	})
 
 	languageSelect.addEventListener('change', event => {
-		const selectedLanguage = event.target.value
-		applyTranslation(selectedLanguage)
+		applyTranslation(event.target.value)
 	})
 
 	const savedLanguage = localStorage.getItem('language') || 'ru'
@@ -114,12 +126,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	const savedPage = localStorage.getItem('currentPage') || 'index'
 	loadPage(savedPage)
 
-	// ✅ Логика тени хедера при скролле (без скрытия)
 	window.addEventListener('scroll', () => {
 		if (window.scrollY > 50) {
-			header.classList.add('scrolled') // Добавляем тень при прокрутке вниз
+			header.classList.add('scrolled')
 		} else {
-			header.classList.remove('scrolled') // Убираем тень при возвращении наверх
+			header.classList.remove('scrolled')
 		}
 	})
 })
