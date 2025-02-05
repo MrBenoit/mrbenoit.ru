@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
 	const themeToggle = document.getElementById('theme-toggle')
-	const htmlElement = document.documentElement
 	const languageSelect = document.getElementById('language-select')
 	const content = document.getElementById('content')
 	const nav = document.querySelector('nav')
@@ -15,7 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 		.querySelector('meta[name="theme-color"]')
 		.setAttribute('content', '#384254')
 
-	let translations = {} // Хранилище переводов
+	let translations = {}
 
 	// 🔹 Загружаем JSON с переводами
 	async function loadTranslations(lang) {
@@ -55,8 +54,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 		try {
 			const response = await fetch(pagePath, {
 				method: 'GET',
-				mode: 'no-cors', // Убираем CORS-ограничения
-				cache: 'no-store', // Избегаем кеширования
+				mode: 'no-cors',
+				cache: 'no-store',
 			})
 
 			if (!response.ok) {
@@ -115,7 +114,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 		// Добавляем временную задержку перед сменой атрибута, чтобы транзишн сработал
 		document.documentElement.style.transition =
-			'background-color 0.1s ease-in-out, color 0.1s ease-in-out'
+			'background-color var(--transition), color var(--transition)'
 
 		document.documentElement.setAttribute('data-theme', newTheme)
 		localStorage.setItem('theme', newTheme)
