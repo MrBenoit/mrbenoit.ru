@@ -3,5 +3,9 @@
 	"portfolio": "Portfolio",
 	"blog": "Blog",
 	"contact": "Contact",
-	"welcome": "Welcome to my website!"
+	"welcome": "Welcome to my website!",
+	"filmflows_desc": "A platform for watching movies and TV series",
+	"bookvault_desc": "Online library for reading and downloading books in different languages",
+	"in_develope": "In develope",
+	"matrix_calculator_desc": "Simple matrix calculator"
 }
