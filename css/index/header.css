@@ -1,23 +1,17 @@
 .svg-container {
-	position: relative;
-	width: 100%;
-	overflow: hidden;
-}
-
-.svg__header {
-	position: relative;
+	position: absolute;
+	top: 0;
+	left: 0;
 	width: 100%;
 	height: auto;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	overflow: hidden;
+	z-index: -1;
+
 }
 
-.svg-wrapper {
+.svg-container svg {
 	width: 100%;
-	display: flex;
-	justify-content: center;
+	height: auto;
+	display: block;
 }
 
 .svg-first,
@@ -42,7 +36,6 @@ header {
 	padding-left: 30px;
 	padding-right: 30px;
 	border-radius: 20px;
-	transition: background-color var(--transition), box-shadow var(--transition);
 	z-index: 1000;
 	box-shadow: none;
 }
